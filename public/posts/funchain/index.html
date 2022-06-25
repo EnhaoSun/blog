@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Funchain - Enhao&#39;s Cafe</title><meta name="description" content="追踪golang函数调用链"><meta property="og:title" content="Funchain" />
+<meta property="og:description" content="追踪golang函数调用链" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/funchain/" /><meta property="og:image" content="http://example.org/posts/funchain/funchain2.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-25T12:39:51+08:00" />
+<meta property="article:modified_time" content="2022-06-25T12:39:51+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/posts/funchain/funchain2.png"/>
+<meta name="twitter:title" content="Funchain"/>
+<meta name="twitter:description" content="追踪golang函数调用链"/>
+<meta name="application-name" content="FeelIt">
+<meta name="apple-mobile-web-app-title" content="FeelIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="cafe.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/funchain/" /><link rel="alternate" href="/posts/funchain/index.xml" type="application/rss+xml" title="Enhao&#39;s Cafe">
+    <link rel="feed" href="/posts/funchain/index.xml" type="application/rss+xml" title="Enhao&#39;s Cafe"><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Funchain",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/funchain\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/posts\/funchain\/funchain2.png",
+                            "width":  1032 ,
+                            "height":  552 
+                        }],"genre": "posts","keywords": "go","wordcount":  739 ,
+        "url": "http:\/\/example.org\/posts\/funchain\/","datePublished": "2022-06-25T12:39:51+08:00","dateModified": "2022-06-25T12:39:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Enhao"},"author": {
+                "@type": "Person",
+                "name": "Enhao"
+            },"description": "追踪golang函数调用链"
+    }
+    </script></head><body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Enhao&#39;s Cafe"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a class="menu-item" href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Enhao&#39;s Cafe"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><div class="menu-item"><a href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a>
+                <span>&nbsp;|&nbsp;</span><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="enable"><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/funchain/funchain2.png"
+        data-srcset="/posts/funchain/funchain2.png, /posts/funchain/funchain2.png 1.5x, /posts/funchain/funchain2.png 2x"
+        data-sizes="auto"
+        alt="/posts/funchain/funchain2.png"
+        title="追踪golang函数调用链" /></div><div class="single-card" data-image="true"><h2 class="single-title animated flipInX">Funchain</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Enhao</a></span></div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-25">2022-06-25</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 739 字</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>目录</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#如何使用">如何使用</a></li>
+    <li><a href="#多色彩的console输出">多色彩的console输出</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><p><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/EnhaoSun/funchain" target="_blank" rel="noopener noreffer">Github项目地址</a></p>
+<h2 id="介绍">介绍</h2>
+<hr>
+<blockquote>
+<p><strong>funchain</strong>是用go编写的，可以用来追踪函数调用链的一个工具。</p>
+</blockquote>
+<p>因为最近在学习go， 跟着<a href="https://geektutu.com/post/gee.html" target="_blank" rel="noopener noreffer">七天用Go从零实现系列</a>教程走了一遍。但是对于我这种菜鸟，函数一多，脑子就比较乱，糊里糊涂不知道一个RESFTUL请求过来，都是调用了哪些函数，顺序是怎么样的。</p>
+<p>因此，想着能否通过go语言本身，把一个请求的调用链给打印出来。</p>
+<p>于是上网搜了搜，找到了一个工具：<a href="https://github.com/bigwhite/functrace" target="_blank" rel="noopener noreffer">https://github.com/bigwhite/functrace</a></p>
+<p>不过这个工具还是有一些不足的地方：</p>
+<ul>
+<li>并发情况下，多个线程打印是穿插着进行的，看着很乱</li>
+<li>色彩单一，没法一目了然。</li>
+</ul>
+<p>因此我基于这个工具做了一点点改动：</p>
+<ul>
+<li>多线程情况下，同一个线程内的函数调用，一起打印</li>
+<li>添加了多色彩的支持</li>
+</ul>
+<h2 id="如何使用">如何使用</h2>
+<blockquote>
+<p>这个工具原理很简单，就是利用了go的defer语法糖，在函数入口和出口打印函数名。</p>
+</blockquote>
+<p>只需要在go.mod里添加如下依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">require github.com/EnhaoSun/funchain v1.0.0 // indirect
+</span></span></code></pre></div><p>添加完依赖以后，在你想要追踪的函数里，添加defer，如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;github.com/EnhaoSun/funchain&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">()</span> <span class="nf">xxx</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">funchain</span><span class="p">.</span><span class="nf">Trace</span><span class="p">()()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//....
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="多色彩的console输出">多色彩的console输出</h2>
+<p>例如，我在<a href="https://geektutu.com/post/gee-day3.html" target="_blank" rel="noopener noreffer">Go语言动手写Web框架第三天</a>的如下函数里添加了defer：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// router.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">parsePattern</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">router</span><span class="p">)</span> <span class="nf">getRoute</span><span class="p">(</span><span class="nx">method</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">node</span><span class="p">,</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">router</span><span class="p">)</span> <span class="nf">addRoute</span><span class="p">(</span><span class="nx">method</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handler</span> <span class="nx">HandleFunc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">router</span><span class="p">)</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// trie.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">insert</span><span class="p">(</span><span class="nx">pattern</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">parts</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">height</span> <span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">matchChild</span><span class="p">(</span><span class="nx">part</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">node</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">matchChildren</span><span class="p">(</span><span class="nx">part</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">search</span><span class="p">(</span><span class="nx">parts</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">height</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">node</span>
+</span></span></code></pre></div><p>然后，添加路由</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">goe</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">.</span><span class="nf">HTML</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;&lt;h1&gt;Hello Goe&lt;/h1&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// ...后续还有添加几个
+</span></span></span></code></pre></div><hr>
+<p>其函数调用链的打印结果如下：</p>
+<figure><a class="lightgallery" href="/posts/funchain/funchain1.png" title="函数调用链打印" data-thumbnail="/posts/funchain/funchain1.png" data-sub-html="<h2>函数调用链：添加路由</h2><p>函数调用链打印</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="funchain1.png"
+            data-srcset="/posts/funchain/funchain1.png, funchain1.png 1.5x, /posts/funchain/funchain1.png 2x"
+            data-sizes="auto"
+            alt="/posts/funchain/funchain1.png" />
+    </a><figcaption class="image-caption">函数调用链：添加路由</figcaption>
+    </figure>
+<hr>
+<p>添加完路由以后，发送一个GET请求，其函数调用链的打印结果如下：
+<figure><a class="lightgallery" href="funchain2.png" title="函数调用链打印" data-thumbnail="funchain2.png" data-sub-html="<h2>函数调用链：GET请求</h2><p>函数调用链打印</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="funchain2.png"
+            data-srcset="funchain2.png, funchain2.png 1.5x, funchain2.png 2x"
+            data-sizes="auto"
+            alt="funchain2.png" />
+    </a><figcaption class="image-caption">函数调用链：GET请求</figcaption>
+    </figure>
+<h2 id="总结">总结</h2>
+<p>这个小工具涉及到的go语言知识:</p>
+<ul>
+<li><code>defer</code>的使用</li>
+<li><code>sync.Mutex</code>同步锁</li>
+<li><code>runtime</code>包获取program counter，函数名</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://github.com/bigwhite/functrace" target="_blank" rel="noopener noreffer">https://github.com/bigwhite/functrace</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/go/">go</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>更新于 2022-06-25</span>
+            </div><div class="post-info-mod"></div>
+        </div></div><div class="post-nav"></div></div>
+</div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.98.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.1"><i class="fas fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/">Enhao</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+</div>
+</footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </a></div><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lunr/lunr.stemmer.support.min.js"></script><script src="/lib/lunr/lunr.zh.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/typeit/typeit.min.js"></script><script src="/lib/lightgallery/lightgallery.min.js"></script><script src="/lib/lightgallery/lg-thumbnail.min.js"></script><script src="/lib/lightgallery/lg-zoom.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/auto-render.min.js"></script><script src="/lib/katex/copy-tex.min.js"></script><script src="/lib/katex/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":20},"comment":{},"data":{"id-1":"额，小姐请问一下，有没有卖半岛铁盒","id-2":"额，小姐请问一下，有没有卖半岛铁盒"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":null,"lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":null,"noResultsFound":"没有找到结果","snippetLength":null,"type":"lunr"},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":null,"speed":null}};</script><script src="/js/theme.min.js"></script></body></html>
