@@ -2,11 +2,11 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://example.org/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/funchain/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/tags/go/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/tags/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/about/</loc><lastmod>2022-06-25T11:04:49&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/categories/</loc></url><url>
-            <loc>http://example.org/offline/</loc></url></urlset>
+            <loc>https://enhaosun.com/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/posts/funchain/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/tags/go/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/posts/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/tags/</loc><lastmod>2022-06-25T12:39:51&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/about/</loc><lastmod>2022-06-25T11:04:49&#43;08:00</lastmod></url><url>
+            <loc>https://enhaosun.com/categories/</loc></url><url>
+            <loc>https://enhaosun.com/offline/</loc></url></urlset>

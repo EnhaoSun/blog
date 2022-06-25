@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Offline on Enhao&#39;s Cafe</title>
-    <link>http://example.org/offline/</link>
+    <link>https://enhaosun.com/offline/</link>
     <description>Recent content in Offline on Enhao&#39;s Cafe</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language><atom:link href="http://example.org/offline/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="https://enhaosun.com/offline/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

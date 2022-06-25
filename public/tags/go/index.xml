@@ -1,12 +1,12 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>go - 标签 - Enhao&#39;s Cafe</title>
-        <link>http://example.org/tags/go/</link>
+        <link>https://enhaosun.com/tags/go/</link>
         <description>go - 标签 - Enhao&#39;s Cafe</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 25 Jun 2022 12:39:51 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/go/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 25 Jun 2022 12:39:51 &#43;0800</lastBuildDate><atom:link href="https://enhaosun.com/tags/go/" rel="self" type="application/rss+xml" /><item>
     <title>Funchain</title>
-    <link>http://example.org/posts/funchain/</link>
-    <pubDate>Sat, 25 Jun 2022 12:39:51 &#43;0800</pubDate><guid>http://example.org/posts/funchain/</guid>
+    <link>https://enhaosun.com/posts/funchain/</link>
+    <pubDate>Sat, 25 Jun 2022 12:39:51 &#43;0800</pubDate><guid>https://enhaosun.com/posts/funchain/</guid>
     <description><![CDATA[<i class="fab fa-github"></i>&nbsp;Github项目地址 介绍 funchain是用go编写的，可以用来追踪函数调用链的一个工具。 因为最近在学习go， 跟着七天用Go从零实现系列]]></description>
 </item>
 </channel>
